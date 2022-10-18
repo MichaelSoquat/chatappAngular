@@ -1,0 +1,25 @@
+:host {
+    display: block;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 999;
+}
+
+.header-styling {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #3f51b5;
+}
+
+.menu-title-box {
+    display: flex;
+    align-items: center;
+    h1 {
+        margin: 0;
+        margin-left: 2rem;
+        color: white;
+    }
+}
