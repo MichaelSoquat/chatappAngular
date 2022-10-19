@@ -1,6 +1,6 @@
 <header class="header-styling">
     <div class="menu-title-box">
-        <button (click)="sidenav.toggle()" mat-icon-button>
+        <button (click)="sideNavToggle()" mat-icon-button>
         <mat-icon>menu</mat-icon>
       </button>
         <h1>Chatapp</h1>
@@ -8,7 +8,6 @@
     <button [mat-menu-trigger-for]="menu" mat-icon-button>
       <mat-icon>more_vert</mat-icon>
     </button>
-
     <mat-menu #menu="matMenu">
         <button mat-menu-item>
         <mat-icon>dialpad</mat-icon>
@@ -19,28 +18,5 @@
         <span>Logout</span>
       </button>
     </mat-menu>
-
-
 </header>
-<mat-sidenav-container class="nav-container">
-    <mat-sidenav #sidenav mode="side" class="nav-content">
-        <button mat-button>Channel erstellen</button>
-        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Channel
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-            <p>Render channel names here</p>
-        </mat-expansion-panel>
-
-        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Private Chats
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-            <p>Render private chats here</p>
-        </mat-expansion-panel>
-    </mat-sidenav>
-</mat-sidenav-container>
+<app-side-nav [sideNavStatus$]="sideNavStatus.asObservable()"></app-side-nav>

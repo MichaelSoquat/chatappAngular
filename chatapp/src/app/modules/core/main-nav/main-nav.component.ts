@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-main-nav',
@@ -8,8 +9,13 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class MainNavComponent implements OnInit {
   constructor() { }
-  panelOpenState: boolean = false;
-  ngOnInit(): void {
-  }
 
+  sideNavStatus: Subject<boolean> = new Subject<boolean>();
+  sideNavBoolean: boolean = false;
+  ngOnInit(): void { }
+
+  sideNavToggle() {
+    this.sideNavBoolean = !this.sideNavBoolean;
+    this.sideNavStatus.next(this.sideNavBoolean);
+  }
 }

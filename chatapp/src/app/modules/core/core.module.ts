@@ -6,9 +6,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { SideNavComponent } from './side-nav/side-nav.component';
+
 
 const declarations = [
-  MainNavComponent
+  MainNavComponent,
+  SideNavComponent
 ];
 
 @NgModule({
@@ -22,6 +25,7 @@ const declarations = [
     MatExpansionModule
   ],
   exports: [...declarations],
+ 
 })
 
 export class CoreModule { }
