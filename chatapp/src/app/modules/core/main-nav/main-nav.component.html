@@ -1,13 +1,46 @@
-<div class="header-styling">
+<header class="header-styling">
     <div class="menu-title-box">
-        <button mat-mini-fab color="primary">
-            <mat-icon>menu</mat-icon>
-          </button>
+        <button (click)="sidenav.toggle()" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
         <h1>Chatapp</h1>
     </div>
+    <button [mat-menu-trigger-for]="menu" mat-icon-button>
+      <mat-icon>more_vert</mat-icon>
+    </button>
 
-    <button mat-mini-fab color="primary">
-        <mat-icon>home</mat-icon>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Mein Name</span>
       </button>
+        <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
 
-</div>
+
+</header>
+<mat-sidenav-container class="nav-container">
+    <mat-sidenav #sidenav mode="side" class="nav-content">
+        <button mat-button>Channel erstellen</button>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Channel
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>Render channel names here</p>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Private Chats
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>Render private chats here</p>
+        </mat-expansion-panel>
+    </mat-sidenav>
+</mat-sidenav-container>

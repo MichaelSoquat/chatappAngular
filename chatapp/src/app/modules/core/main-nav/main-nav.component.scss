@@ -3,7 +3,6 @@
     position: sticky;
     top: 0;
     background-color: white;
-    z-index: 999;
 }
 
 .header-styling {
@@ -12,6 +11,9 @@
     align-items: center;
     padding: 1rem 2rem;
     background-color: #3f51b5;
+    button {
+        color: white;
+    }
 }
 
 .menu-title-box {
@@ -22,4 +24,49 @@
         margin-left: 2rem;
         color: white;
     }
+}
+
+.nav-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: calc(100vh - 72px);
+    overflow-y: auto;
+}
+
+.nav-content {
+    width: 250px;
+    height: 100%;
+    background-color: #3f51b5;
+    color: white;
+    a {
+        color: white;
+    }
+}
+
+.mat-drawer-inner-container {
+    display: flex;
+    flex-direction: column;
+    button {
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+}
+
+.mat-expansion-panel-header {
+    background-color: #3f51b5;
+    //all child elements color white
+    * {
+        color: white;
+    }
+    &:hover {
+        background-color: #303f9f !important;
+    }
+}
+
+.mat-expanded {
+    background-color: #3f51b5;
+    color: white;
 }
