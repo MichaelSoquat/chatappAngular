@@ -4,6 +4,9 @@
     button {
         padding-top: 16px;
         padding-bottom: 16px;
+        &:hover {
+            background-color: #303f9f !important;
+        }
     }
 }
 

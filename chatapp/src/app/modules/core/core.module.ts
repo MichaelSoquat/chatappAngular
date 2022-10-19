@@ -7,11 +7,13 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { UserInfoComponent } from './user-info/user-info.component';
 
 
 const declarations = [
   MainNavComponent,
-  SideNavComponent
+  SideNavComponent,
+  UserInfoComponent
 ];
 
 @NgModule({
@@ -25,6 +27,7 @@ const declarations = [
     MatExpansionModule
   ],
   exports: [...declarations],
+  
  
 })
 
