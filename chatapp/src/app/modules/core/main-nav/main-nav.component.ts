@@ -9,13 +9,22 @@ import { Subject } from 'rxjs';
 })
 export class MainNavComponent implements OnInit {
   constructor() { }
-
+  
   sideNavStatus: Subject<boolean> = new Subject<boolean>();
-  sideNavBoolean: boolean = false;
+  isSidenavOpen: boolean = false;
+
   ngOnInit(): void { }
 
-  sideNavToggle() {
-    this.sideNavBoolean = !this.sideNavBoolean;
-    this.sideNavStatus.next(this.sideNavBoolean);
+  checkSidenavStatus() {
+    this.toggleSidenav();
+    this.emitSidenavStatus(this.isSidenavOpen);
+  }
+
+  toggleSidenav() {
+    this.isSidenavOpen = !this.isSidenavOpen;
+  }
+
+  emitSidenavStatus(status: boolean) {
+    this.sideNavStatus.next(this.isSidenavOpen);
   }
 }

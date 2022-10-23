@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, Input, OnInit, ViewChild, ViewEncapsulati
 import { MatSidenav } from '@angular/material/sidenav';
 import { Observable } from 'rxjs';
 
+
 @Component({
   selector: 'app-side-nav',
   templateUrl: './side-nav.component.html',
@@ -10,17 +11,24 @@ import { Observable } from 'rxjs';
 })
 export class SideNavComponent implements OnInit {
   @Input() sideNavStatus$: Observable<boolean> = new Observable<boolean>();
-  @ViewChild('sidenav') sidenav!: MatSidenav;
-  publicChannelOpenState: boolean = false;
-  privateChannelOpenState: boolean = false;
+  @ViewChild('sidenav') matSidenav!: MatSidenav;
+  isPublicChannelOpen: boolean = false;
+  isPrivateChannelOpen: boolean = false;
 
   constructor(private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
+    this.detectChanges();
+    this.getNavEvent()
+  }
+
+  detectChanges() {
     this.cd.detectChanges();
+  }
+
+  getNavEvent() {
     this.sideNavStatus$.subscribe((status) => {
-      console.log(this.sidenav)
-      this.sidenav.toggle();
+      this.matSidenav.toggle();
     });
   }
 }
