@@ -9,7 +9,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { CreateChannelComponent } from './create-channel/create-channel.component';
-
+import {MatCardModule} from '@angular/material/card';
+import { CoreRoutingModule } from './core-routing.module';
 
 const declarations = [
   MainNavComponent,
@@ -26,7 +27,9 @@ const declarations = [
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatCardModule,
+    CoreRoutingModule
   ],
   exports: [...declarations],
   

@@ -7,11 +7,12 @@ import { Observable } from 'rxjs';
   selector: 'app-side-nav',
   templateUrl: './side-nav.component.html',
   styleUrls: ['./side-nav.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  
 })
 export class SideNavComponent implements OnInit {
-  @Input() sideNavStatus$: Observable<boolean> = new Observable<boolean>();
+  @Input() sidenavStatus$: Observable<boolean> = new Observable<boolean>();
   @ViewChild('sidenav') matSidenav!: MatSidenav;
+  isSidenavOpen: boolean = false;
   isPublicChannelOpen: boolean = false;
   isPrivateChannelOpen: boolean = false;
 
@@ -27,9 +28,19 @@ export class SideNavComponent implements OnInit {
   }
 
   getNavEvent() {
-    this.sideNavStatus$.subscribe((status) => {
-      this.matSidenav.toggle();
-    });
+    this.sidenavStatus$.subscribe((status: boolean) => {
+      this.toggleSidenav();
+      this.setSidenavStatus(status);
+    }
+    );
+  }
+
+  toggleSidenav() {
+    this.matSidenav.toggle();
+  }
+
+  setSidenavStatus(status: boolean) {
+    this.isSidenavOpen = status;
   }
 }
 

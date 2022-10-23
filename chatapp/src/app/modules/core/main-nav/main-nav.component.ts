@@ -5,26 +5,27 @@ import { Subject } from 'rxjs';
   selector: 'app-main-nav',
   templateUrl: './main-nav.component.html',
   styleUrls: ['./main-nav.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
+  
 })
 export class MainNavComponent implements OnInit {
   constructor() { }
-  
-  sideNavStatus: Subject<boolean> = new Subject<boolean>();
+
+  sidenavStatus: Subject<boolean> = new Subject<boolean>();
   isSidenavOpen: boolean = false;
 
   ngOnInit(): void { }
 
   checkSidenavStatus() {
-    this.toggleSidenav();
+    this.changeSidenavStatus();
     this.emitSidenavStatus(this.isSidenavOpen);
   }
 
-  toggleSidenav() {
+  changeSidenavStatus() {
     this.isSidenavOpen = !this.isSidenavOpen;
   }
 
   emitSidenavStatus(status: boolean) {
-    this.sideNavStatus.next(this.isSidenavOpen);
+    this.sidenavStatus.next(status);
   }
 }
