@@ -11,6 +11,8 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { CreateChannelComponent } from './create-channel/create-channel.component';
 import {MatCardModule} from '@angular/material/card';
 import { CoreRoutingModule } from './core-routing.module';
+import { ButtonsModule } from 'src/app/shared';
+
 
 const declarations = [
   MainNavComponent,
@@ -29,7 +31,8 @@ const declarations = [
     MatSidenavModule,
     MatExpansionModule,
     MatCardModule,
-    CoreRoutingModule
+    CoreRoutingModule,
+    ButtonsModule
   ],
   exports: [...declarations],
   
