@@ -1,6 +1,6 @@
 <mat-sidenav-container class="nav-container">
     <mat-sidenav #sidenav mode="side" class="nav-content">
-        <button mat-button>Channel erstellen</button>
+        <button routerLink="create-channel" mat-button>Channel erstellen</button>
         <mat-expansion-panel (opened)="isPublicChannelOpen = true" (closed)="isPublicChannelOpen = false">
             <mat-expansion-panel-header>
                 <mat-panel-title>
