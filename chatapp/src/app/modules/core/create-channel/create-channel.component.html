@@ -1,8 +1,12 @@
 <mat-card>
-    <mat-card-title>Actions Buttons</mat-card-title>
-    <mat-card-subtitle>End</mat-card-subtitle>
+    <form [formGroup]="form" novalidate autocomplete="off" (ngSubmit)="onSubmit()">
+        <app-form-field label="Channel" [required]="true" [control]="form.controls['input']" [isInline]="true">
+            <app-input (changed)="onPatchValue($event)" #input formControlName="input"></app-input>
+        </app-form-field>
+
+    </form>
     <mat-card-actions align="end">
-        <app-button>Channel erstellen</app-button>
+        <app-button (click)="onSubmit()">Channel erstellen</app-button>
         <app-button routerLink="/">Abbrechen</app-button>
     </mat-card-actions>
 </mat-card>

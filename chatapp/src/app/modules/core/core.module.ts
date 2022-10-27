@@ -11,7 +11,8 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { CreateChannelComponent } from './create-channel/create-channel.component';
 import {MatCardModule} from '@angular/material/card';
 import { CoreRoutingModule } from './core-routing.module';
-import { ButtonsModule } from 'src/app/shared';
+import { ButtonsModule, ControlsModule } from 'src/app/shared';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 const declarations = [
@@ -32,7 +33,10 @@ const declarations = [
     MatExpansionModule,
     MatCardModule,
     CoreRoutingModule,
-    ButtonsModule
+    ButtonsModule,
+    ReactiveFormsModule,
+    ControlsModule
+
   ],
   exports: [...declarations],
   
