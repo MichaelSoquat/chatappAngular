@@ -1,0 +1,21 @@
+<div>
+    <div class="inline">
+
+
+        <label for="">
+        {{label}}
+        <span *ngIf="required">*</span>
+    </label>
+        <div>
+            <ng-content></ng-content>
+        </div>
+    </div>
+    <div>
+        <ng-container *ngIf="control.touched && errorKey && control.errors" [ngSwitch]="errorKey">
+            <span class="error-color" *ngSwitchCase="'min'">Minimum {{control.errors}} </span>
+            <span class="error-color" *ngSwitchCase="'required'">Bitte das Feld ausfüllen.</span>
+            <span class="error-color" *ngSwitchCase="'minlength'">Mindestlänge: {{control.errors[errorKey]['requiredLength']}}</span>
+            <span class="error-color" *ngSwitchCase="'pattern'">Pattern {{control.errors}}</span>
+        </ng-container>
+    </div>
+</div>

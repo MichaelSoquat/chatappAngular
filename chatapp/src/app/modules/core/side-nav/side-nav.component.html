@@ -1,0 +1,23 @@
+<mat-sidenav-container class="nav-container">
+    <mat-sidenav #sidenav mode="side" class="nav-content">
+        <button routerLink="create-channel" mat-button>Channel erstellen</button>
+        <mat-expansion-panel (opened)="isPublicChannelOpen = true" (closed)="isPublicChannelOpen = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Channel
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>Render channel names here</p>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel (opened)="isPrivateChannelOpen = true" (closed)="isPrivateChannelOpen = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Private Chats
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>Render private chats here</p>
+        </mat-expansion-panel>
+    </mat-sidenav>
+    <router-outlet></router-outlet>
+</mat-sidenav-container>

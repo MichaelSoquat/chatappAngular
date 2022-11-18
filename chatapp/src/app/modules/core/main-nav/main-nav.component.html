@@ -1,0 +1,10 @@
+<header class="header-styling">
+    <main class="menu-title-box">
+        <button (click)="checkSidenavStatus()" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+        <h1>Hometown</h1>
+    </main>
+    <app-user-info></app-user-info>
+</header>
+<app-side-nav [sidenavStatus$]="sidenavStatus.asObservable()"></app-side-nav>

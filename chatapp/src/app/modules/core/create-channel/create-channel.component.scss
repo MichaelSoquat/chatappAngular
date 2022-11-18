@@ -1,0 +1,25 @@
+:host {
+    width: 300px !important;
+}
+
+.mat-card {
+    max-width: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: flyFromLeftToMiddle 0.5s ease-in-out;
+}
+
+@keyframes flyFromLeftToMiddle {
+    0% {
+        left: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+    100% {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

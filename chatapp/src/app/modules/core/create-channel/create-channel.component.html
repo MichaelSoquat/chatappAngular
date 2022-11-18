@@ -1,0 +1,19 @@
+<mat-card>
+    <form [formGroup]="form" novalidate autocomplete="off" (ngSubmit)="onSubmit()">
+        <app-form-field label="Private Channel" [required]="true" [control]="form.controls['checkboxprivate']">
+            <app-checkboxes (changed)="checkState($event)" #private [checkbox]="checkboxPrivate" formControlName="checkboxprivate"></app-checkboxes>
+        </app-form-field>
+        <app-form-field label="Public Channel" [required]="true" [control]="form.controls['checkboxpublic']">
+            <app-checkboxes (changed)="checkState($event)" [checkbox]="checkboxPublic" formControlName="checkboxpublic"></app-checkboxes>
+        </app-form-field>
+        <app-form-field label="Channelname" [required]="true" [control]="form.controls['input']" [isInline]="true">
+
+            <app-input (changed)="onPatchValue($event)" #input formControlName="input"></app-input>
+        </app-form-field>
+
+    </form>
+    <mat-card-actions align="end">
+        <app-button (click)="onSubmit()">Channel erstellen</app-button>
+        <app-button routerLink="/">Abbrechen</app-button>
+    </mat-card-actions>
+</mat-card>
