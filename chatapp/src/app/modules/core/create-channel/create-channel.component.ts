@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Checkbox } from 'src/app/models/interfaces/checkbox';
 
 @Component({
   selector: 'app-create-channel',
@@ -8,6 +9,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 })
 export class CreateChannelComponent implements OnInit {
+  checkboxPrivate: Checkbox = { value: false, label: 'Test' };
+  checkboxPublic: Checkbox = { value: false, label: 'Test' };
+  oneChecked: boolean = false;
 
   form!: FormGroup;
   constructor(private fb: FormBuilder) { }
@@ -18,6 +22,16 @@ export class CreateChannelComponent implements OnInit {
         {
           validators: [Validators.required, Validators.minLength(3)],
           updateOn: 'blur',
+        }],
+      checkboxprivate: [null,
+        {
+          validators: [Validators.required],
+          updateOn: 'change',
+        }],
+      checkboxpublic: [null,
+        {
+          validators: [Validators.required],
+          updateOn: 'change',
         }]
     });
   }
@@ -38,9 +52,14 @@ export class CreateChannelComponent implements OnInit {
     });
   }
 
-  
+
   onToggleDisable() {
 
+  }
+
+  checkState(event: boolean) {
+    console.log(event);
+    this.oneChecked=event;
   }
 
 }

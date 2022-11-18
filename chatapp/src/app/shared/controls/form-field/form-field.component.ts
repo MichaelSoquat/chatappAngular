@@ -15,25 +15,34 @@ export class FormFieldComponent implements OnInit {
   @Input() isInline: boolean = false;
   @Input() required: boolean = false;
 
-
-
-
   constructor(private controlservice: ControlsService) { }
 
   ngOnInit(): void {
   }
 
   checkError() {
-    if (this.control.errors) {
-      this.controlservice.hasError = true;
-    }
-    else {
-      this.controlservice.hasError = false;
-    }
+    this.setErrorStatus(this.hasError());
   }
+
+  hasError() {
+    return this.control.errors != null;
+  }
+
+  setErrorStatus(status: boolean) {
+    this.controlservice.hasError = status;
+  }
+
   get errorKey(): any {
     this.checkError();
     return this.control && this.control.errors && Object.keys(this.control.errors)[0];
+  }
+
+  ngOnDestroy() {
+    this.setErrorDefault();
+  }
+
+  setErrorDefault() {
+    this.controlservice.hasError = false;
   }
 
 }
